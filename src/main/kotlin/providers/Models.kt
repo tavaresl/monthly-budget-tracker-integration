@@ -31,6 +31,9 @@ data class ExpensePageProperties(
 
     @JsonProperty("Amount")
     val amount: NumberProperty,
+
+    @JsonProperty("Category")
+    val category: RelationProperty,
 )
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -55,6 +58,9 @@ data class MonthlyBalancePageProperties(
 
     @JsonProperty("End date")
     val endDate: DateProperty,
+
+    @JsonProperty("Expenses")
+    val expenses: RelationProperty,
 )
 
 data class Database(
@@ -177,4 +183,12 @@ data class NumberProperty(
 
 data class DateProperty(
     val date: DateObject
+)
+
+data class RelationObject(
+    val id: String
+)
+
+data class RelationProperty(
+    val relation: List<RelationObject>
 )

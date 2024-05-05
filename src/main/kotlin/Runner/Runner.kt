@@ -21,12 +21,6 @@ class Runner {
                     it.properties.date.date.start.after(balance.properties.startDate.date.start) &&
                     it.properties.date.date.start.before(balance.properties.endDate.date.start)
                 }
-
-                println("Expenses in ${balance.properties.endDate.date.start}")
-                println(expensesInMonth.map { it.properties.name.title.fold("") { names, expense -> "$names\n${expense.plainText}" } })
-
-                println("Incomes in ${balance.properties.endDate.date.start}")
-                println(incomesInMonth.map { it.properties.name.title.fold("") { names, income -> "$names\n${income.plainText}" } })
             }
         }
     }

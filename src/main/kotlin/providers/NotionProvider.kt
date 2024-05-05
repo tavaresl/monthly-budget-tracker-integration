@@ -54,7 +54,8 @@ class NotionProvider(private val config: Config) {
 
             val response = client.newCall(request).execute().use { response ->
                 if (!response.isSuccessful) throw IOException("Unexpected code $response")
-                mapper.readValue<PaginatedResponse<Page<T>>>(response.body!!.string())
+                val responseBody = response.body!!.string()
+                mapper.readValue<PaginatedResponse<Page<T>>>(responseBody)
             }
 
             pages.addAll(response.results)
